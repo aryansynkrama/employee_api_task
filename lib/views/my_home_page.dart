@@ -2,8 +2,6 @@ import 'dart:convert';
 
 import 'package:employees_api_call/models/employee_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:http/http.dart' as http;
 
 class MyHomePage extends StatefulWidget {
@@ -75,19 +73,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     Text(
-                                      "Id : " +
-                                          snapshot.data!.data![index].id
-                                              .toString(),
+                                      "Id : ${snapshot.data!.data![index].id}",
                                       style: TextStyle(
                                         fontSize: 20,
                                         color: Colors.white,
                                       ),
                                     ),
                                     Text(
-                                      "Name : " +
-                                          snapshot
-                                              .data!.data![index].employeeName
-                                              .toString(),
+                                      "Name : ${snapshot
+                                              .data!.data![index].employeeName}",
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: Colors.white,
@@ -100,20 +94,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     Text(
-                                      "Salary : " +
-                                          snapshot
-                                              .data!.data![index].employeeSalary
-                                              .toString(),
+                                      "Salary : ${snapshot
+                                              .data!.data![index].employeeSalary}",
                                       style: TextStyle(
                                         fontSize: 20,
                                         color: Colors.white,
                                       ),
                                     ),
                                     Text(
-                                      "Age : " +
-                                          snapshot
-                                              .data!.data![index].employeeAge
-                                              .toString(),
+                                      "Age : ${snapshot
+                                              .data!.data![index].employeeAge}",
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: Colors.white,
