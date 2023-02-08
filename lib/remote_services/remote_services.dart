@@ -16,31 +16,44 @@ class RemoteServices {
   //   return null;
   // }
 
-  Future<Employee?> getPosts() async {
-    var client = http.Client();
-    var uri = Uri.parse('https://dummy.restapiexample.com/api/v1/employees');
-    var response = await client.get(uri);
+  // Future<Employee?> getPosts() async {
+  //   var client = http.Client();
+  //   var uri = Uri.parse('https://dummy.restapiexample.com/api/v1/employees');
+  //   var response = await client.get(uri);
+  //   if (response.statusCode == 200) {
+  //     var json = response.body;
+  //     // print(json);
+  //     var data = jsonDecode(json);
+  //     print(data['data'][0]);
+  //     return Employee.fromJson(data);
+  //   }
+  //   return null;
+  // }
+  //
+  // Future<List<Data>> fetchData() async {
+  //   var client = http.Client();
+  //   var uri = Uri.parse('https://dummy.restapiexample.com/api/v1/employees');
+  //   var response = await client.get(uri);
+  //   if (response.statusCode == 200) {
+  //     List<dynamic> decodedJson = json.decode(response.body);
+  //     return decodedJson.map((data) => Data.fromJson(data)).toList();
+  //   } else {
+  //     print(response.statusCode);
+  //     print(response.body);
+  //     throw Exception('Failed to load data');
+  //   }
+  // }
+  Future<Employee> getEmployeeDetails() async {
+    final response = await http.get(
+      Uri.parse("https://dummy.restapiexample.com/api/v1/employees"),
+    );
+    var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
-      var json = response.body;
-      // print(json);
-      var data = jsonDecode(json);
-      print(data['data'][0]);
       return Employee.fromJson(data);
-    }
-    return null;
-  }
-
-  Future<List<Data>> fetchData() async {
-    var client = http.Client();
-    var uri = Uri.parse('https://dummy.restapiexample.com/api/v1/employees');
-    var response = await client.get(uri);
-    if (response.statusCode == 200) {
-      List<dynamic> decodedJson = json.decode(response.body);
-      return decodedJson.map((data) => Data.fromJson(data)).toList();
     } else {
-      print(response.statusCode);
-      print(response.body);
-      throw Exception('Failed to load data');
+      return Employee.fromJson(data);
     }
   }
 }
+
+final remoteServices = RemoteServices();

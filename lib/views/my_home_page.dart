@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:employees_api_call/models/employee_model.dart';
+import 'package:employees_api_call/remote_services/remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,6 +13,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
 
   Future<Employee> getEmployeeDetails() async {
     final response = await http.get(
@@ -29,7 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // TODO: implement initState
     super.initState();
     getEmployeeDetails();
+
   }
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;

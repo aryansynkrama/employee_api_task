@@ -1,3 +1,4 @@
+import 'package:employees_api_call/views/home.dart';
 import 'package:employees_api_call/views/home_page.dart';
 import 'package:employees_api_call/views/my_home_page.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: Home(),
     );
   }
 }
